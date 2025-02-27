@@ -9,13 +9,25 @@ let loader=document.querySelector(".loader")
 let namevari=""
 let cutting=""
 let api=` http://www.omdbapi.com/?i=tt3896198&apikey=a2452760` 
-async function  fetchMovie(){
-      let result = await fetch(`http://www.omdbapi.com/?avenger=tt3896198&apikey=a2452760&s="${input.value}"&page=`)
+function mappingBtn(){
+    pageno.addEventListener("click",(e)=>{
+    if(e.target.tagName==="BUTTON"){
+      let pgno= (e.target.dataset.id)
+        fetchMovie(pgno)
+    }
+    
+    })
+    }
+     mappingBtn()
+async function  fetchMovie(pgno){
+    
+      let result = await fetch(`http://www.omdbapi.com/?avenger=tt3896198&apikey=a2452760&s="${input.value}"&page=${pgno}`)
 
           let mainResult=await result.json()
         //   console.log(mainResult);
           
       console.log(mainResult);
+      pagining(mainResult)
     display(mainResult)  
 }
 function showloader(){
@@ -75,6 +87,19 @@ loader.style.display="none"
 
 
 movieDiv.innerHTML=clutter2
+
+
+}
+function pagining(vari){
+let length=(Math.ceil(vari.totalResults / 10))
+console.log(length);
+let pagecount=""
+
+for (let i=1;i<=length;i++){
+pagecount+=`<button data-id=${i}> ${i} </button>`
+    
+}
+pageno.innerHTML=pagecount
 
 
 }

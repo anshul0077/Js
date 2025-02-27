@@ -113,28 +113,12 @@ html, body{
     margin-bottom: 20px;
     /* background-color: rgb(13, 255, 0); */
 }
-.pages{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: aqua; */
-    height: 100%;
-    width: 100vw    ;
-}
-.page:first-child{
+
+.pages:first-child{
     background-color: rgb(194, 192, 192)  ;
     border: 2px solid black;
 }
-.page{
-    cursor: pointer;
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 15px;
-    background-color: rgb(239, 238, 238); 
-    border-radius: 100%;
-}
+
 .page:last-child{
     font-weight: bolder;
     /* background-color: aqua; */
@@ -215,22 +199,40 @@ footer{
 }
 .page-div{
     height: 70px;
-    width: 50%;
+    width: 70%;
 display: flex;
 align-items: center;
 justify-content: center;
 gap: 10px;
 /* background-color: brown; */
 }
+
+.pages{
+    height: 90px;
+    width: 66%;
+/* background-color: blueviolet; */
+display: flex;
+align-items: center;
+justify-content: start;
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow-x: auto;
+}
 .pages >button {
-    
-    height: 50%;
-    width: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    background-color: rgb(139, 136, 136);
+    height: 50px;
+    width: 50px;
+    padding: 20px;
+    border-radius: 100%;
+    border-color: blue;
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(173, 172, 172);
+}
+button {
+    cursor :pointer;
+    margin-left: 5px; ;
 }
 
 
@@ -268,22 +270,7 @@ rotate: 360deg;
     
 }
 
-.abhi{
-    height: 100%;
-    width: 100%;
-    /* padding: 20px; */
-    background-color: brown;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.anshu{
-    
-    height: 80%;
-    width: 80%;
-    margin:30%;
-    background-color: rgb(58, 42, 165);
-}
+
 marquee{
     height: 100%;
     width: 100%;
