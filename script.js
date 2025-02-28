@@ -12,6 +12,9 @@ let api=` http://www.omdbapi.com/?i=tt3896198&apikey=a2452760`
 function mappingBtn(){
     pageno.addEventListener("click",(e)=>{
     if(e.target.tagName==="BUTTON"){
+    const buttons =pageno.querySelectorAll("button")
+    buttons.forEach(btn=>btn.style.backgroundColor="")
+        e.target.style.backgroundColor="red"
       let pgno= (e.target.dataset.id)
         fetchMovie(pgno)
     }
@@ -20,6 +23,7 @@ function mappingBtn(){
     }
      mappingBtn()
 async function  fetchMovie(pgno){
+    pgno == pgno || 1
     
       let result = await fetch(`http://www.omdbapi.com/?avenger=tt3896198&apikey=a2452760&s="${input.value}"&page=${pgno}`)
 
@@ -27,7 +31,7 @@ async function  fetchMovie(pgno){
         //   console.log(mainResult);
           
       console.log(mainResult);
-      pagining(mainResult)
+      pagining(mainResult,Number(pgno))
     display(mainResult)  
 }
 function showloader(){
@@ -90,13 +94,20 @@ movieDiv.innerHTML=clutter2
 
 
 }
-function pagining(vari){
+function pagining(vari,activePage){
 let length=(Math.ceil(vari.totalResults / 10))
 console.log(length);
 let pagecount=""
 
 for (let i=1;i<=length;i++){
-pagecount+=`<button data-id=${i}> ${i} </button>`
+ if(i===activePage){
+
+    pagecount += `<button data-id="${i}" style="background-color: red;">${i}</button>`;
+            }
+ else{
+    pagecount+=`<button  data-id=${i}> ${i} </button>`
+ 
+ }
     
 }
 pageno.innerHTML=pagecount
