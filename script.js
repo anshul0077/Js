@@ -19,6 +19,8 @@ function mappingBtn(){
         fetchMovie(pgno)
     }
     
+
+    
     })
     }
      mappingBtn()

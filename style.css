@@ -114,10 +114,7 @@ html, body{
     /* background-color: rgb(13, 255, 0); */
 }
 
-.pages:first-child{
-    background-color: rgb(194, 192, 192)  ;
-    border: 2px solid black;
-}
+
 
 .page:last-child{
     font-weight: bolder;
